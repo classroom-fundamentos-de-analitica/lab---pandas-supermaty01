@@ -191,8 +191,7 @@ def pregunta_11():
     values = []
     for row in groupedTable:
         values.append(','.join(sorted(list(map(lambda x: x[1], row[1].values)))))
-    return pd.DataFrame({"_c4": values}, index=pd.Series(sorted(tbl0['_c0'].unique()), name="_c0"))
-
+    return pd.DataFrame({"_c0": pd.Series(sorted(tbl0['_c0'].unique())), "_c4": values,})
 
 def pregunta_12():
     """
@@ -213,7 +212,8 @@ def pregunta_12():
     values = []
     for row in groupedTable:
         values.append(','.join(sorted(list(map(lambda x: f'{x[1]}:{x[2]}', row[1].values)))))
-    return pd.DataFrame({"_c5": values}, index=pd.Series(sorted(tbl0['_c0'].unique()), name="_c0"))
+    return pd.DataFrame({"_c0": pd.Series(sorted(tbl0['_c0'].unique())), "_c5": values})
+print(pregunta_12())
 
 
 def pregunta_13():
